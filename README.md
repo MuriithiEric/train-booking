@@ -38,7 +38,7 @@ We’ve got **4 days** to complete this challenge, so let’s make the most of i
 ### 📁 **What’s Inside?**
 - **ERD**: A clear visual representation of your database design.
 - **booking.sql**: The SQL file that contains the schema and sample data.
-- **GitHub Repo**: All your work will be hosted here for easy sharing and collaboration.
+- **GitHub Repo**: All your work will be hosted on github.
 
 ### 📚 **For More Details:**
 For more detailed instructions and guidance on the project, you can reference this document https://docs.google.com/document/d/1VNRqXbNTn4uviW5y9w9BvXsdbr5ZFGbNOUrWr4Rgep4/edit?usp=sharing
@@ -54,7 +54,7 @@ We’ll be judged based on the following:
 ### 🚀 **Let’s Do This!**
 Now, let’s get coding, designing, and having fun as we create the best train booking system ever! 🎉 
 
-Don’t forget to **collaborate** with your team, keep everything organized, and let’s make this journey unforgettable! 🌟
+ **Work** with your peer group, keep everything organized, and let’s make this happen! 🌟
 
 ---
 
