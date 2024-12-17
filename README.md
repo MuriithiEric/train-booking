@@ -40,6 +40,9 @@ We’ve got **4 days** to complete this challenge, so let’s make the most of i
 - **booking.sql**: The SQL file that contains the schema and sample data.
 - **GitHub Repo**: All your work will be hosted here for easy sharing and collaboration.
 
+### 📚 **For More Details:**
+For more detailed instructions and guidance on the project, you can reference this document https://docs.google.com/document/d/1VNRqXbNTn4uviW5y9w9BvXsdbr5ZFGbNOUrWr4Rgep4/edit?usp=sharing
+
 ### 🏆 **Evaluation Criteria**
 We’ll be judged based on the following:
 - **Database Design (30%)**: Proper ERD implementation, correct use of primary and foreign keys.
