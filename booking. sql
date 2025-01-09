@@ -1,0 +1,89 @@
+.
+
+### 1. Entity-Relationship Diagram (ERD)
+
+**Entities:**
+- **Train Station**
+  - Attributes: StationID (PK), StationName, Location, Capacity
+
+- **Passenger**
+  - Attributes: PassengerID (PK), FirstName, LastName, Email, PhoneNumber
+
+- **Booking**
+  - Attributes: BookingID (PK), BookingDate, PassengerID (FK), StationID (FK), TrainID (FK), SeatNumber
+
+- **Train**
+  - Attributes: TrainID (PK), TrainName, TrainType, TotalSeats
+
+**Relationships:**
+- A **Passenger** can have multiple **Bookings** (1 to Many).
+- A **Train Station** can have multiple **Bookings** (1 to Many).
+- A **Train** can have multiple **Bookings** (1 to Many).
+
+### 2. Database Schema
+
+Here’s the SQL schema based on the above ERD:
+
+```sql
+CREATE TABLE TrainStation (
+    StationID INT PRIMARY KEY,
+    StationName VARCHAR(100) NOT NULL,
+    Location VARCHAR(100) NOT NULL,
+    Capacity INT NOT NULL
+);
+
+CREATE TABLE Passenger (
+    PassengerID INT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    PhoneNumber VARCHAR(15) UNIQUE NOT NULL
+);
+
+CREATE TABLE Train (
+    TrainID INT PRIMARY KEY,
+    TrainName VARCHAR(100) NOT NULL,
+    TrainType VARCHAR(50) NOT NULL,
+    TotalSeats INT NOT NULL
+);
+
+CREATE TABLE Booking (
+    BookingID INT PRIMARY KEY,
+    BookingDate DATETIME NOT NULL,
+    PassengerID INT,
+    StationID INT,
+    TrainID INT,
+    SeatNumber INT NOT NULL,
+    FOREIGN KEY (PassengerID) REFERENCES Passenger(PassengerID),
+    FOREIGN KEY (StationID) REFERENCES TrainStation(StationID),
+    FOREIGN KEY (TrainID) REFERENCES Train(TrainID)
+);
+```
+
+### 3. Populate with Data
+
+
+```sql
+-- Insert Train Stations
+INSERT INTO TrainStation (StationID, StationName, Location, Capacity) VALUES
+(1, 'Nairobi Central', 'Nairobi', 200),
+(2, 'Mombasa Station', 'Mombasa', 150),
+(3, 'Kisumu Station', 'Kisumu', 100);
+
+-- Insert Passengers
+INSERT INTO Passenger (PassengerID, FirstName, LastName, Email, PhoneNumber) VALUES
+(1, 'John', 'Doe', 'john.doe@example.com', '+254712345678'),
+(2, 'Mary', 'Wanjiru', 'mary.wanjiru@example.com', '+254798765432'),
+(3, 'Peter', 'Ochieng', 'peter.ochieng@example.com', '+254701234567');
+
+-- Insert Trains
+INSERT INTO Train (TrainID, TrainName, TrainType, TotalSeats) VALUES
+(1, 'SGR Express', 'High-speed', 300),
+(2, 'Coastal Express', 'Passenger', 200);
+
+-- Insert Bookings
+INSERT INTO Booking (BookingID, BookingDate, PassengerID, StationID, TrainID, SeatNumber) VALUES
+(1, '2025-01-10 10:30:00', 1, 1, 1, 5),
+(2, '2025-01-10 11:00:00', 2, 2, 1, 15),
+(3, '2025-01-11 09:00:00', 3, 3, 2, 10);
+```
